@@ -4,7 +4,7 @@ import numpy as np
 import tensorflow as tf
 tf.python.control_flow_ops = tf
 
-with open('small_train_traffic.p', mode='rb') as f:
+with open('data/small_train_traffic.p', mode='rb') as f:
     data = pickle.load(f)
 
 X_train, y_train = data['features'], data['labels']
@@ -37,7 +37,7 @@ y_one_hot = label_binarizer.fit_transform(y_train)
 model.compile('adam', 'categorical_crossentropy', ['accuracy'])
 history = model.fit(X_normalized, y_one_hot, nb_epoch=10, validation_split=0.2)
 
-with open('small_test_traffic.p', 'rb') as f:
+with open('data/small_test_traffic.p', 'rb') as f:
     data_test = pickle.load(f)
 
 X_test = data_test['features']

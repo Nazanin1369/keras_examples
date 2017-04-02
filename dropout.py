@@ -4,7 +4,7 @@ import numpy as np
 import tensorflow as tf
 tf.python.control_flow_ops = tf
 
-with open('small_train_traffic.p', mode='rb') as f:
+with open('data/small_train_traffic.p', mode='rb') as f:
     data = pickle.load(f)
 
 X_train, y_train = data['features'], data['labels']
